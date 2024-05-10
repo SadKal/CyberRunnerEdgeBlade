@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://ourgqdw7g6wv"]
+
+[ext_resource type="Script" path="res://Scenes/BuffSpawner/BuffSpawner.gd" id="1_fbjed"]
+[ext_resource type="Texture2D" uid="uid://7wt65asp6v77" path="res://art/box.png" id="2_sav3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dmt7"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8060"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mlah"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2j6r"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oq3a"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjg2j"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(80, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc0ag"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(96, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opx5c"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(112, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4t6f"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(128, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr4id"]
+atlas = ExtResource("2_sav3w")
+region = Rect2(144, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcfmc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dmt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8060")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mlah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2j6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oq3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjg2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc0ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opx5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4t6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr4id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_464ol"]
+radius = 4.0
+
+[node name="BuffSpawner" type="Node2D"]
+script = ExtResource("1_fbjed")
+
+[node name="SpawnerSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xcfmc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_464ol")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

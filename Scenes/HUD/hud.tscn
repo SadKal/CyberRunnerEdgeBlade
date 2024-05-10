@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6li8g7800rlt"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="1_d1pbg"]
+[ext_resource type="Texture2D" uid="uid://bqem65bbuhoxo" path="res://art/Under.png" id="1_ixe77"]
+[ext_resource type="Texture2D" uid="uid://dx3bh5lp0cv0h" path="res://art/Over.png" id="2_sm6tj"]
+[ext_resource type="Texture2D" uid="uid://c6axni3phty2g" path="res://art/Texture.png" id="3_al4d8"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_d1pbg")
+
+[node name="LifeBar" type="TextureProgressBar" parent="."]
+offset_right = 60.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("1_ixe77")
+texture_over = ExtResource("2_sm6tj")
+texture_progress = ExtResource("3_al4d8")
+
+[node name="TimeElapsedLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_right = 71.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0.701961, 0, 0.913725, 1)
+bbcode_enabled = true
+
+[node name="Difficulty" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0.878431, 0, 0, 1)
+text = "1"

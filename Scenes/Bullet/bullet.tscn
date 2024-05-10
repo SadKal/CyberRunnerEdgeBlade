@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxtfp7wkilb2r"]
+
+[ext_resource type="Script" path="res://Scenes/Bullet/bullet.gd" id="1_a4ixa"]
+[ext_resource type="Texture2D" uid="uid://cumh1268u6de0" path="res://art/Laser.png" id="1_xsqke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cxyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po1xr"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(0, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx0bg"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(20, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxn"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(40, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boebx"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(60, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8gc7"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(80, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcryp"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(100, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uctnc"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(120, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q0ar"]
+atlas = ExtResource("1_xsqke")
+region = Rect2(140, 0, 20, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxto6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po1xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx0bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boebx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8gc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcryp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uctnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q0ar")
+}],
+"loop": true,
+"name": &"playing",
+"speed": 24.0
+}]
+
+[node name="Bullet" type="Area2D" groups=["bullets"]]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_a4ixa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1cxyw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mxto6")
+animation = &"playing"

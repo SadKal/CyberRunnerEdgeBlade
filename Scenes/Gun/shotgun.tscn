@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://byri8luxumvgr"]
+
+[ext_resource type="Script" path="res://Scenes/Gun/shotgun.gd" id="1_yo5yx"]
+[ext_resource type="Texture2D" uid="uid://brnm5a8dxnqsn" path="res://art/Mio_portrait.webp" id="2_5yi7r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4clqf"]
+atlas = ExtResource("2_5yi7r")
+region = Rect2(0, 0, 360, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lpmw"]
+atlas = ExtResource("2_5yi7r")
+region = Rect2(0, 0, 360, 373)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnumb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4clqf")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lpmw")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 2.0
+}]
+
+[node name="Shotgun" type="Node2D"]
+script = ExtResource("1_yo5yx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_rnumb")
+animation = &"shooting"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
